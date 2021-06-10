@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <IncludePath>$(Solutiondir)lib\glew-2.1.0\include;$(Solutiondir)lib\glfw-3.2.1.bin.WIN32\include;$(Solutiondir)lib\glm-0.9.9.0;$(Solutiondir)common;$(Solutiondir)lib\imgui-master;$(Solutiondir)lib\Soil\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(Solutiondir)lib\glew-2.1.0\lib\Release\Win32;$(Solutiondir)lib\glfw-3.2.1.bin.WIN32\lib-vc2015;$(Solutiondir)lib\Soil;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>glew32.lib;glfw3.lib;glfw3dll.lib;soil2.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(SolutionDir)lib\glfw-3.2.1.bin.WIN32\lib-vc2015\glfw3.dll" "$(TargetDir)glfw3.dll" /Y
+copy "$(SolutionDir)lib\glew-2.0.0\bin\Release\Win32\glew32.dll" "$(TargetDir)glew32.dll" /Y
+copy "$(SolutionDir)lib\FreeImage\Dist\x32\FreeImage.dll" "$(TargetDir)FreeImage.dll" /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
